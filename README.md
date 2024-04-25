@@ -30,18 +30,20 @@ Generate app key
 ```bash
 php artisan key:generate
 ```
-Install node packages
-```npm
-npm install
-```
-```npm
-npm run dev
-```
 Install ChromeDriver
 ```bash
 php artisan dusk:chrome-driver
 ```
-Run docker container
+
+Install node packages
+```npm
+npm install
+```
+Open new terminal window and run
+```npm
+npm run dev
+```
+Open new terminal window and run docker container
 ```bash
 ./vendor/bin/sail up
 ```
