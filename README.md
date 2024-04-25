@@ -9,7 +9,7 @@
 
 ## Setup
 
-PHP 8.2.x and composer needs to be installed.
+PHP 8.2.x, composer, Docker needs to be installed.
 
 Clone repostory
 ```bash
