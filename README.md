@@ -9,54 +9,74 @@
 
 ## Setup
 
+PHP 8.2.x and composer needs to be installed.
+
 Clone repostory
 ```bash
 git clone https://github.com/ankitank25/avrillo-api
 ```
+```bash
+cd ./avrillo-api
+```
+Install composer packages
+```bash
+composer install
+```
+Copy .env file
+```bash
+cp .env.example .env
+```
+Generate app key
+```bash
+php artisan key:generate
+```
+Install node packages
+```npm
+npm install
+```
+```npm
+npm run dev
+```
+Install ChromeDriver
+```bash
+php artisan dusk:chrome-driver
+```
+Run docker container
+```bash
+./vendor/bin/sail up
+```
+
+To open browser:
+
+Click:
+[http://127.0.0.1/](http://127.0.0.1/)
 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Testing
+### Feature test
 
-## Learning Laravel
+Run
+```bash
+php artisan test --testsuite=Feature
+```
+Below three tests should be pass.
+ - listing page successful response
+ - refresh api successful response
+ - refresh api limit successful response
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Browser test
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Run
+```bash
+php artisan dusk
+```
+Below three tests should be pass.
+- quote listing page (Screenshot: quote-listing-page.png)
+- quote listing refresh button (Screenshot: quote-listing-refresh-button.png)
+- quote listing refresh (Screenshot: quote-listing-refresh-before.png, quote-listing-refresh-after.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Tests will generate screenshot in ``./tests/Browser/screenshots`` directory.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The application is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
